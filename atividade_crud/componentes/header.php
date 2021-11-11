@@ -1,5 +1,10 @@
+<?php
+session_start()
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 
     <meta charset="UTF-8">
@@ -36,7 +41,7 @@
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="../login/">Sair</a>
+            <a class="nav-link" href="../login/">Sair </a>
         </li>
         
     </ul>

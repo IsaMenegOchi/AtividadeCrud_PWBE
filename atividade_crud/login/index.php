@@ -1,5 +1,7 @@
 <?php
+
     include('../componentes/header.php');
+
 ?>
 
     <div class="container-geral">
@@ -21,7 +23,24 @@
                     <div class="form-group">
                       <button class="btn btn-primary" type="submit">LOGAR</button>
                     </div>
+                    <?php
+                   
 
+                    if(isset($_GET["erro"])){
+                    ?>
+                        <script lang="javascript"> 
+                        
+                            "use script"
+
+                            function alertar(){
+                                alert("usuário ou senha incorretos");
+                            }
+                            
+                            alertar();
+                            </script>
+                        <?php
+                    }
+                    ?>
                 </form>
 
             </div>
