@@ -1,14 +1,13 @@
 <?php
 
     include('../componentes/header.php');
-
 ?>
 
     <div class="container-geral">
     
         <div class="container-form">
     
-                <form action="processa_login.php" method="POST">
+                <form action="processa_login.php?acao=login" method="POST">
                     
                     <div class="form-group">
                         <label for="txt_usuario">USUÁRIO</label>

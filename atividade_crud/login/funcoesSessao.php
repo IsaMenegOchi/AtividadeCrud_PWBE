@@ -18,9 +18,5 @@ function finalizarLogin(){
 }
 
 
-function realizarLogin(){
-            $_SESSION["id"] = session_id();
-
-}
 
 ?>

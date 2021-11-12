@@ -1,4 +1,6 @@
 <?php
+require_once("../login/funcoesSessao.php");
+verificarLogin();
 
 const HOST = "localhost";
 const USER = "root";

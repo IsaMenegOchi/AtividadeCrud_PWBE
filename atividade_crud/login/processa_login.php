@@ -1,33 +1,43 @@
 <?php
 
-session_start();
-
-
+    session_start();
+    require_once("./funcoesSessao.php");
     require_once("../dataBase/conexao.php");
 
-    $usuario = $_POST["txt_usuario"];
-    $senha = $_POST["txt_senha"];
 
-    $sqlUsuario = "SELECT usuario, senha FROM tbl_administradores";
+    switch ($_GET["acao"]){
 
-    $resultadoDados = mysqli_query($conexao, $sqlUsuario);
+        case "login":
 
-    $arrayDados = mysqli_fetch_array($resultadoDados);
+            echo "login";
 
-    if(isset($_POST["txt_usuario"]) && isset($_POST["txt_senha"])){
-        if($usuario == $arrayDados["usuario"] && $senha == $arrayDados["senha"]){
-            $_SESSION["id"] = session_id();
-            header("location: ../cadastro/index.php");
-        }
-        else{
-            header("location: ./index.php?erro");
-        }
+            $usuario = $_POST["txt_usuario"];
+            $senha = $_POST["txt_senha"];
+
+            $sqlUsuario = "SELECT usuario, senha FROM tbl_administradores WHERE usuario = '$usuario'";
+
+            $resultadoDados = mysqli_query($conexao, $sqlUsuario);
+
+            $arrayDados = mysqli_fetch_array($resultadoDados);
+
+            if(isset($usuario) && isset($senha)){
+
+                if($usuario == $arrayDados["usuario"] && $senha == $arrayDados["senha"]){
+                    $_SESSION["id"] = session_id();
+                    header("location: ../cadastro/index.php");
+                }
+                else{
+                    session_unset();
+                }
+            }
+        break;
+
+        case "logout":
+
+          finalizarLogin();
+
+        break;
     }
-
-    else if($_GET["logout"]){
-        finalizarLogin();
-    }
-
     
     
 

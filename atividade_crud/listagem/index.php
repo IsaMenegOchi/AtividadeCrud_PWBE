@@ -1,15 +1,13 @@
 <?php
-    session_start();
     include('../componentes/header.php');
     require_once("../dataBase/conexao.php");
+    require_once("../login/funcoesSessao.php");
+
+    verificarLogin();
 
     $sql = "SELECT * FROM tbl_pessoa";
 
     $mandarBanco = mysqli_query($conexao, $sql);
-
-    // echo "<pre>";
-    // var_dump($array);
-    // echo "</pre>"; exit;
 ?>
 
 <div class="container">
@@ -36,7 +34,7 @@
             // }
 
             while($pessoa = mysqli_fetch_array($mandarBanco)){
-            
+            echo $pessoa["cod_pessoa"]
             ?>
                 <tr>
                     <th><?=$pessoa["cod_pessoa"]?></th>
@@ -49,7 +47,7 @@
 
                         <form method="post" action="../cadastro/editar.php">
                             <button class="btn btn-warning">Editar</button>
-                            <input type="hidden" name="idPessoa" value="<?php $_SESSION["cod_pessoa"] = $pessoa["cod_pessoa"]?>">
+                            <input type="hidden" name="idPessoa" value="<?=$pessoa["cod_pessoa"]?>">
                             <input type="hidden" name="acao" value="editar">
                         </form>
 

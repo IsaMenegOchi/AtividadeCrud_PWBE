@@ -1,6 +1,8 @@
 <?php
 
+require_once("../login/funcoesSessao.php");
 require_once("../dataBase/conexao.php");
+verificarLogin();
 
 switch ($_POST["acao"]){
 

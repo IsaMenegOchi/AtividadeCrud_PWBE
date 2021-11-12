@@ -1,6 +1,5 @@
 <?php
-session_start()
-
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +18,7 @@ session_start()
 </head>
 
 <body>
+
     
 <nav class="navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="">
@@ -41,10 +41,9 @@ session_start()
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="../login/">Sair </a>
+            <a class="nav-link" href="../login/processa_login.php?acao=logout">Sair</a>
         </li>
         
     </ul>
-    
 
 </nav>

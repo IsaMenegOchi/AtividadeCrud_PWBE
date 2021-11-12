@@ -1,5 +1,5 @@
 <?php
-    require("../login/funcoesSessao.php");
+    require_once("../login/funcoesSessao.php");
     include('../componentes/header.php');
 
     verificarLogin();

@@ -1,13 +1,17 @@
 <?php
 
     include('../componentes/header.php');
-
+    require_once("../login/funcoesSessao.php");
     require_once("../dataBase/conexao.php");
 
-    $sql = "SELECT * FROM tbl_pessoa";
+    verificarLogin();
+
+    $idPessoaPost = $_POST["idPessoa"];
+
+    $sql = "SELECT * FROM tbl_pessoa WHERE cod_pessoa = $idPessoaPost";
 
     $mandarBanco = mysqli_query($conexao, $sql);
-    $pessoa =mysqli_fetch_array($mandarBanco)
+    $pessoa =mysqli_fetch_array($mandarBanco);
 ?>
 
 
@@ -21,11 +25,11 @@
                 <form method="post" action="./acoes.php">
 
                 <?php 
-                if($pessoa["cod_pessoa"] = $_SESSION["cod_pessoa"]){
+                if(isset($idPessoaPost)){
 
                 ?>
                     <input type="hidden" name="acao" value="editar">
-                    <input type="hidden" name="idPessoa" value="<?=$pessoa["nome"]?>">
+                    <input type="hidden" name="idPessoa" value="<?=$pessoa["cod_pessoa"]?>">
     
                     <input class="form-control" type="text" placeholder="Digite o nome" name="nome" id="nome" value="<?=$pessoa["nome"]?>">
                     <br/>
